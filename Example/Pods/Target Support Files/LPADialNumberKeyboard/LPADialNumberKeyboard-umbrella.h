@@ -10,6 +10,8 @@
 #endif
 #endif
 
+#import "LPADialNumberButton.h"
+#import "LPADialNumberKeyboard.h"
 
 FOUNDATION_EXPORT double LPADialNumberKeyboardVersionNumber;
 FOUNDATION_EXPORT const unsigned char LPADialNumberKeyboardVersionString[];

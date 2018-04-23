@@ -7,23 +7,41 @@
 //
 
 #import "LPAViewController.h"
+#import <LPADialNumberKeyboard/LPADialNumberKeyboard.h>
 
 @interface LPAViewController ()
+
+@property (nonatomic, strong) LPADialNumberKeyboard *dialKeyboard;
 
 @end
 
 @implementation LPAViewController
 
-- (void)viewDidLoad
-{
+#pragma mark - Life Cycle
+
+- (void)viewDidLoad {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    [self.view addSubview:self.dialKeyboard];
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    [_dialKeyboard setFrame:self.view.bounds];
+}
+
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Custom Accessors
+
+- (LPADialNumberKeyboard *)dialKeyboard {
+    if (!_dialKeyboard) {
+        _dialKeyboard = [[LPADialNumberKeyboard alloc] initWithFrame:CGRectZero];
+    }
+    return _dialKeyboard;
 }
 
 @end
