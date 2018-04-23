@@ -1,0 +1,6 @@
+framework module Pods_LPADialNumberKeyboard_Tests {
+  umbrella header "Pods-LPADialNumberKeyboard_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}
