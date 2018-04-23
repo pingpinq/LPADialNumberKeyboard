@@ -26,9 +26,9 @@
     self = [super initWithFrame:frame];
     if (self) {
         [self setBackgroundColor:[UIColor whiteColor]];
+        [self addSubview:self.contentButton];
         [self addSubview:self.titleLabel];
         [self addSubview:self.detailTextLabel];
-        [self addSubview:self.contentButton];
         // Border lines
         [self addSubview:self.topLineView];
         [self addSubview:self.leftLineView];
@@ -95,6 +95,7 @@
         _titleLabel.textColor = [UIColor blackColor];
         _titleLabel.font = [UIFont systemFontOfSize:16];
         _titleLabel.textAlignment = NSTextAlignmentCenter;
+        _titleLabel.userInteractionEnabled = NO;
     }
     return _titleLabel;
 }
@@ -103,8 +104,9 @@
     if (!_detailTextLabel) {
         _detailTextLabel = [[UILabel alloc] init];
         _detailTextLabel.textColor = [UIColor grayColor];
-        _detailTextLabel.font = [UIFont systemFontOfSize:12];
+        _detailTextLabel.font = [UIFont systemFontOfSize:11];
         _detailTextLabel.textAlignment = NSTextAlignmentCenter;
+        _detailTextLabel.userInteractionEnabled = NO;
     }
     return _detailTextLabel;
 }

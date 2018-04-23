@@ -9,7 +9,7 @@
 #import "LPAViewController.h"
 #import <LPADialNumberKeyboard/LPADialNumberKeyboard.h>
 
-@interface LPAViewController ()
+@interface LPAViewController () <LPADialNumberKeyboardDelegate>
 
 @property (nonatomic, strong) LPADialNumberKeyboard *dialKeyboard;
 
@@ -35,11 +35,18 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - LPADialNumberKeyboard Delegate
+
+- (void)dialNumberKeyboard:(LPADialNumberKeyboard *)dialNumberKeyboard didPressedAtButtonWithText:(NSString *)text {
+    NSLog(@"%@", text);
+}
+
 #pragma mark - Custom Accessors
 
 - (LPADialNumberKeyboard *)dialKeyboard {
     if (!_dialKeyboard) {
         _dialKeyboard = [[LPADialNumberKeyboard alloc] initWithFrame:CGRectZero];
+        _dialKeyboard.delegate = self;
     }
     return _dialKeyboard;
 }
